@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import DehazeIcon from '@material-ui/icons/Dehaze';
-import Fade from 'react-reveal/Fade';
+
 import CloseIcon from '@material-ui/icons/Close';
 import { selectCars } from '../features/car/carSlice';
 import { useSelector } from 'react-redux';
@@ -9,7 +9,11 @@ import { useSelector } from 'react-redux';
 function Header() {
 
   const [burgerStatus, setBurgerStatus] = useState(false);
-  const cars = useSelector(selectCars)  
+  const cars = useSelector(selectCars) ;
+
+  const foo = () => {
+    <h1>Tesla!!</h1>
+  } 
     
     return (
         <Container>
@@ -19,14 +23,14 @@ function Header() {
 
           <Menu>
           {cars && cars.map((car, index) => (
-          <a key={index} href="#">{car}</a>
+          <a key={index} href="#" onClick={foo}>{car}</a>
           ))}
            
            </Menu>
 
            <RightMenu>
-            <a href="#">Shop</a>
-            <a href="#">Tesla Account</a>
+            <a href="#" onClick={foo}>Shop</a>
+            <a href="#" onClick={foo}>Tesla Account</a>
             <CustomMenu onClick={() =>setBurgerStatus(true)} />
            </RightMenu>
            <BurgerNav show={burgerStatus}>
@@ -34,14 +38,14 @@ function Header() {
             <CustomClose onClick={() =>setBurgerStatus(false)} />
             </CloseWrapper>
             {cars && cars.map((car, index) => (
-          <li key={index}><a href="#">{car}</a></li>
+          <li key={index}><a href="#" onClick={foo}>{car}</a></li>
           ))}
-             <li><a href="#">Existing Inventory</a></li>
-             <li><a href="#">Used Inventory</a></li>
-             <li><a href="#">Trade</a></li>
-             <li><a href="#">Collab</a></li>
-             <li><a href="#">CyberTruck</a></li>
-             <li><a href="#">Roadster</a></li>
+             <li><a href="#" onClick={foo}>Existing Inventory</a></li>
+             <li><a href="#" onClick={foo}>Used Inventory</a></li>
+             <li><a href="#" onClick={foo}>Trade</a></li>
+             <li><a href="#" onClick={foo}>Collab</a></li>
+             <li><a href="#" onClick={foo}>CyberTruck</a></li>
+             <li><a href="#" onClick={foo}>Roadster</a></li>
              
            </BurgerNav>
         </Container>
